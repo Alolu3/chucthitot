@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wish Generator</title>
+    <meta charset="UTF-8" />
+    <style>
+      #button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url('https://source.unsplash.com/random/1600x900');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        animation: background 30s ease infinite;
+      }
+
+      #wish {
+        font-size: 2em;
+        color: #333;
+        display: none;
+      }
+
+      .colorful {
+        background-color: #ff0080;
+        color: #fff;
+      }
+
+      .wish-text {
+        max-width: 500px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="button" onclick="generateWish()">Generate Wish</button>
+    <div id="wish" class="wish-text"></div>
+       </video>
+    <script>
+      const wishes = [
+        "THI TỐT NHÉ!",
+        "BÌNH TĨNH TỰ TIN CHIẾN THẮNG",
+        "CỐ HẾT SỨC MÌNH.",
+        "SỬ DỤNG TẤT CẢ NHỮNG GÌ MÌNH CÓ ĐỂ ĐẠT ĐƯỢC ĐIỀU MÌNH MUỐN.",
+        "Chúc bạn không kiêu khi thấy đề ngắn, không nản khi đề dài, không chủ quan khi đề dễ và thật bình tĩnh khi đề khó.",
+        "Thi này phải khác thi xưa, nếu không thể chép thì ôn kĩ vào",
+        "Thi cho tốt vào! Chỉ còn kì này nữa thôi… là sang các kì thi khác rồi nhé!",
+        "Học, học nữa, học mãi = thành công, thành công, đại thành công!",
+        "Thi cho tốt nhưng cũng phải giữ sức khoẻ nhá!",
+        "Healthy body-Healthy mind.",
+        "Thi cho tốt vào, không là ăn đánh.",
+        "Ăn được, ngủ được là tiên. Thi cho tốt nhá rồi đi ăn, đi ngủ...",
+        "Mai thi tốt nhá để được thi tiếp!!!",
+        "Làm bài tốt, hốt giải về!!!",
+        "Quan trọng vẫn là thần thái!!!",
+        "Kiến thức sâu rộng, tinh thần thoải mái.",
+        "Không cần lo lắng quá đâu. Thoải mái thôi",
+        "Ngủ chưa! Học xong thì ngủ đi.",
+        "Ai thấy được dòng này thì sẽ may mắn.",
+        "Em quạt các anh chị hsg!!!",
+        "Đừng hối hận là được.",
+        "Vui lên đê.",
+        "Tôi tin bạn.",
+        "Alooooooo, thi thật tốt vào nhó.",
+        "Thi tốt cho kẹo!!!",
+        "Làm bài cẩn thận nhá!!!",
+        "Chúc bạn có kết quả vượt mong đợi.",
+        "Đọc đề cẩn thận, làm bài đúng hết nhá",
+        "Đừng căng thẳng quá, mà căng thẳng cũng được à mà thôi.",
+        "Vui không? Không thì vui lên, vui mới thi tốt được!!!",
+      ];
+
+      let clicks = 0;
+
+      function generateWish() {
+        if (clicks < 20) {
+          clicks++;
+          const x = Math.random() * (window.innerWidth - 100);
+          const y = Math.random() * (window.innerHeight - 100);
+          const wish = wishes[Math.floor(Math.random() * wishes.length)];
+          const button = document.getElementById("button");
+          const color =
+            "#" +
+            Math.floor(Math.random() * 16777215).toString(16);
+
+          button.style.left = x + "px";
+          button.style.top = y + "px";
+          button.style.backgroundColor = color;
+
+          const wishText = document.getElementById("wish");
+          wishText.innerText = wish;
+          wishText.style.color = color;
+          wishText.style.backgroundColor = "#fff";
+          wishText.style.borderRadius = "5px";
+          wishText.style.padding = "20px";
+          wishText.style.display = "block";
+
+          if (clicks === 20) {
+            button.innerText = "One Final Wish";
+            button.style.backgroundColor = "#ff0080";
+            const finalWish =
+              "May all your dreams come true, and may you always find the happiness you deserve.";
+            wishText.innerText = finalWish;
+            wishText.style.color = "#fff";
+            wishText.style.backgroundColor = "#ff0080";
+            wishText.style.border = "none";
+            wishText.style.padding = "20px";
+            wishText.style.fontSize = "2.5em";
+            wishText.style.display = "block";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
